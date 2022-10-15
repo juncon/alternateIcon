@@ -41,8 +41,14 @@ class ViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedIcon = icons[indexPath.row]
-        UIApplication.shared.setAlternateIconName(selectedIcon.iconName) { error in
+        changeAppIcon(icons[indexPath.row])
+    }
+}
+
+extension ViewController {
+    private func changeAppIcon(_ icon: AlternateIcon) {
+        guard UIApplication.shared.supportsAlternateIcons else { return }
+        UIApplication.shared.setAlternateIconName(icon.iconName) { error in
             if let error {
                 print(error.localizedDescription)
             } else {
