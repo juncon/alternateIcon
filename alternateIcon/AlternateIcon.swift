@@ -13,7 +13,7 @@ enum AlternateIcon: String, CaseIterable {
     case yellow
     case green
     
-    var iconName: String? {
+    var name: String? {
         self == .default ? nil : rawValue
     }
 }

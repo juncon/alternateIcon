@@ -48,7 +48,7 @@ class ViewController: UITableViewController {
 extension ViewController {
     private func changeAppIcon(_ icon: AlternateIcon) {
         guard UIApplication.shared.supportsAlternateIcons else { return }
-        UIApplication.shared.setAlternateIconName(icon.iconName) { error in
+        UIApplication.shared.setAlternateIconName(icon.name) { error in
             if let error {
                 print(error.localizedDescription)
             } else {
